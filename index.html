@@ -1,6 +1,10 @@
 <head>
     <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/typeit@6.1.1/dist/typeit.min.js"></script>
+    <audio autoplay src="/media/examples/t-rex-roar.mp3">
+        Your browser does not support the
+        <code>audio</code> element.
+    </audio>
 </head>
 
 <body class="noisy"></body>
@@ -36,6 +40,7 @@
             "I'm Software Engineer with a degree in Mathematics, I have more than 7 years of professional experience working on several industries from Fintech to E-Learning, I create outstanding products from scracth by usign sophisticated and robust Engineering designs but easy to understand."
         ],
         speed: 20,
+        cursor: false,
         breakLines: true,
         afterComplete: async (step, instance) => {
             thirdParagraph.go()
@@ -47,6 +52,7 @@
             "I've leaded teams by turning out coders to professional developers and optimizing workflows for ongoing products, I plan every step from I take over a project until I deliver results successfully, Engineering must be next to business needs and goals are driven by customers expectations.",
         ],
         speed: 20,
+        cursor: false,
         breakLines: true,
         afterComplete: async (step, instance) => {
             url.go()
