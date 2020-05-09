@@ -10,8 +10,9 @@
         <h1>Nardo Nykolyszyn</h1>
         <span>x10 Software Engineer, Mathematic and Data Scientist.</span>
         <p id="buildCommand"></p>
-        <p id="descriptionFirst" style="font-size: 16px;"></p>
+        <p id="descriptionOne" style="font-size: 16px;"></p>
         <p id="descriptionTwo" style="font-size: 16px;"></p>
+        <p id="descriptionThree" style="font-size: 16px;"></p>
         <p id="url" style="font-size: 16px;"></p>
     </div>
     <div class="piece scanlines noclick"></div>
@@ -19,7 +20,7 @@
 </div>
 
 <script>
-    let firstParagraph = new TypeIt("#buildCommand", {
+    let mainText = new TypeIt("#buildCommand", {
         strings: "$ whois nardo",
         speed: 150,
         lifeLike: true,
@@ -27,43 +28,53 @@
         cursor: false,
 
         afterComplete: async (step, instance) => {
-            secondParagraph.go()
+          firstParagraph.go();
         }
     })
 
-    let secondParagraph = new TypeIt("#descriptionFirst", {
+    let firstParagraph = new TypeIt("#descriptionOne", {
         strings: [
-            "I create outstanding products from scracth by usign sophisticated and robust Engineering designs, hardest challenge comes when you need to keep tech simplest as you can at the same time it grows up."
+          "I create outstanding products from scracth by usign sophisticated and robust Engineering designs, hardest challenge comes when you need to keep tech simplest as you can at the same time it grows up."
         ],
         speed: 20,
         cursor: false,
         breakLines: true,
         afterComplete: async (step, instance) => {
-            thirdParagraph.go()
+          secondParagraph.go();
         }
     })
 
-    let thirdParagraph = new TypeIt("#descriptionTwo", {
+    let secondParagraph = new TypeIt("#descriptionTwo", {
         strings: [
-            "Within the last 4 years I lead up to 8 engineers, optimized workflows for ongoing projects and taught several technologies.",
+            "Within the last 4 years I lead up to 8 engineers, optimized workflows for ongoing projects and taught several technologies, during this whole process I gained the needed experience to say: ",
         ],
         speed: 20,
         cursor: false,
         breakLines: true,
         afterComplete: async (step, instance) => {
-            url.go()
+          thirdParagraph.go();
         }
     })
 
+    let thirdParagraph = new TypeIt("#descriptionThree", {
+      strings: [
+        "<i style='font-weight: bold;'>'Engineering goals must be driven by business needs'</i>"
+      ],
+      speed: 40,
+      cursor: false,
+      breakLines: true,
+      afterComplete: async(step, instance) => {
+        url.go();
+      }
+    });
+    
     let url = new TypeIt("#url", {
-        strings: [
-            "<a href='https://google.com'>Visit my digital workspace: workspace.devpolish.com</a>"
-        ],
-        speed: 20,
-        breakLines: true
+      strings: [
+        "<a href='https://google.com'>Visit my digital workspace: workspace.devpolish.com</a>"
+      ],
+      speed: 20,
+      breakLines: true
     })
 
-    firstParagraph.go()
-
-
+    mainText.go()
 </script>
