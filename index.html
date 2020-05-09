@@ -1,7 +1,6 @@
 <head>
     <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/typeit@6.1.1/dist/typeit.min.js"></script>
-
 </head>
 
 <body class="noisy"></body>
@@ -11,7 +10,9 @@
         <h1>Nardo Nykolyszyn</h1>
         <span>x10 Software Engineer, Mathematic and Data Scientist.</span>
         <p id="buildCommand"></p>
-        <p class="description"></p>
+        <p id="descriptionFirst" style="font-size: 16px;"></p>
+        <p id="descriptionTwo" style="font-size: 16px;"></p>
+        <p id="url" style="font-size: 16px;"></p>
     </div>
     <div class="piece scanlines noclick"></div>
     <div class="piece glow noclick"></div>
@@ -21,6 +22,7 @@
     let firstParagraph = new TypeIt("#buildCommand", {
         strings: "$ whois nardo",
         speed: 150,
+        lifeLike: true,
         waitUntilVisible: true,
         cursor: false,
 
@@ -29,14 +31,34 @@
         }
     })
 
-    let secondParagraph = new TypeIt(".description", {
+    let secondParagraph = new TypeIt("#descriptionFirst", {
         strings: [
-            "I'm Software Engineer with a degree in Mathematics, I have more than 7 years of professional experience working on several industries from Fintech to E-Learning, I create outstanding products from scracth by usign sophisticated and robust Engineering designs but easy to understand.",
+            "I'm Software Engineer with a degree in Mathematics, I have more than 7 years of professional experience working on several industries from Fintech to E-Learning, I create outstanding products from scracth by usign sophisticated and robust Engineering designs but easy to understand."
+        ],
+        speed: 20,
+        breakLines: true,
+        afterComplete: async (step, instance) => {
+            thirdParagraph.go()
+        }
+    })
+
+    let thirdParagraph = new TypeIt("#descriptionTwo", {
+        strings: [
             "I've leaded teams by turning out coders to professional developers and optimizing workflows for ongoing products, I plan every step from I take over a project until I deliver results successfully, Engineering must be next to business needs and goals are driven by customers expectations.",
+        ],
+        speed: 20,
+        breakLines: true,
+        afterComplete: async (step, instance) => {
+            url.go()
+        }
+    })
+
+    let url = new TypeIt("#url", {
+        strings: [
             "<a href='https://google.com'>Visit my digital workspace: workspace.devpolish.com</a>"
         ],
         speed: 20,
-        waitUntilVisible: true
+        breakLines: true
     })
 
     firstParagraph.go()
