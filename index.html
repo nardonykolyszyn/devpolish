@@ -1,5 +1,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/typeit@6.1.1/dist/typeit.min.js"></script>
+
 </head>
 
 <body class="noisy"></body>
@@ -8,11 +10,32 @@
     <div class="piece output">
         <h1>Nardo Nykolyszyn</h1>
         <p>x10 Software Engineer, Mathematic and Data Scientist.</p>
-        <p>
-            I create high-level performance teams by using sostificated Engineering smells, turning out coders to
-            leaders.
-        </p>
+        <p id="buildCommand"></p>
+        <p class="description"></p>
     </div>
     <div class="piece scanlines noclick"></div>
     <div class="piece glow noclick"></div>
 </div>
+
+<script>
+    let firstParagraph = new TypeIt("#buildCommand", {
+        strings: "$ whois nardo",
+        speed: 150,
+        waitUntilVisible: true,
+        cursor: false,
+
+        afterComplete: async (step, instance) => {
+            secondParagraph.go()
+        }
+    })
+
+    let secondParagraph = new TypeIt(".description", {
+        strings: ["I create high-level performance teams by using sostificated Engineering smells, turning out coders to leaders."],
+        speed: 50,
+        waitUntilVisible: true
+    })
+
+    firstParagraph.go()
+
+
+</script>
